@@ -465,12 +465,12 @@ static void getEpid(RESPONSE *const baseResponse, const char** EpidSource, const
 {
 #if !defined(NO_RANDOM_EPID) || !defined(NO_CL_PIDS) || !defined(NO_INI_FILE)
 	const char* pid;
+	char ePid[PID_BUFFER_SIZE];
 	if (KmsResponseParameters[index].Epid == NULL)
 	{
 #ifndef NO_RANDOM_EPID
 		if (RandomizationLevel == 2)
 		{
-			char ePid[PID_BUFFER_SIZE];
 			generateRandomPid(index, ePid, Lcid, HostBuild);
 			pid = ePid;
 
